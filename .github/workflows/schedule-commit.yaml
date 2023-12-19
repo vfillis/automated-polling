@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: "0 9 * * *" 
+    - cron: "* * * * *" 
 
 jobs:
   generate-data:
@@ -30,6 +30,11 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
   
     # runs-on: ${{ matrix.config.os }}
 
