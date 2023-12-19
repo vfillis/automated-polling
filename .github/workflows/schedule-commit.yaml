@@ -31,11 +31,11 @@ jobs:
       
       - uses: actions/checkout@v2
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: rcmdcheck
     
-      # - uses: r-lib/actions/check-r-package@v1
+      # - uses: r-lib/actions/check-r-package@v2
       
       - name: Install system dependencies
         if: runner.os == 'Linux'
@@ -54,7 +54,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
