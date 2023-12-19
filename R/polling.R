@@ -1,7 +1,6 @@
 library(jsonlite)
 library("dplyr")
 library("tidyr")
-library(googlesheets4)
 
 data <- jsonlite::fromJSON("https://www.politico.eu/wp-json/politico/v1/poll-of-polls/GB-parliament")
 
