@@ -41,6 +41,8 @@ all = rbind(working_trends, working_polls)
 
 all_last3years = subset(all, all$date < Sys.Date() & all$date > (Sys.Date() - (3*365)))
 
-sheet_write(all, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "all_polling")
+write.csv(all_last3years, file = "data/last3Y_polling.csv")
 
-sheet_write(all_last3years, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "last3Y_polling")
+# sheet_write(all, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "all_polling")
+
+# sheet_write(all_last3years, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "last3Y_polling")
