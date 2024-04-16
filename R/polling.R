@@ -19,7 +19,7 @@ full_trends = cbind(trends, trends_parties)
 full_trends = full_trends[-c(2)]
 
 working_trends = full_trends %>%
-  pivot_longer(cols = c("Con":"BP"), names_to = "parties", values_to = "value")
+  pivot_longer(cols = c("Con":"ChUK"), names_to = "parties", values_to = "value")
 
 ## add final formatting in here too 
 
@@ -41,7 +41,3 @@ all = rbind(working_trends, working_polls)
 all_last3years = subset(all, all$date < Sys.Date() & all$date > (Sys.Date() - (3*365)))
 
 write.csv(all_last3years, file = "data/last3Y_polling.csv")
-
-# sheet_write(all, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "all_polling")
-
-# sheet_write(all_last3years, ss = "1660W4lvxEfvsHDCcvrx_-qc1FQgXi0thexcWNqCvnbk", sheet = "last3Y_polling")
