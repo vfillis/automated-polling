@@ -33,7 +33,7 @@ last5y$TimePeriod = "Last 5 years"
 
 world$TimePeriod = "All"
 
-forest_fires_world = rbind(world,last30d,last90d, last6m,last12m,last5y)
+forest_fires_world = rbind(world,last5y,last12m,last6m,last90d,last30d)
 
 write.csv(forest_fires_world, file = "data/forest_fires_world.csv")
 
