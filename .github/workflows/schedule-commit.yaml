@@ -100,7 +100,6 @@ jobs:
       - name: Generate data
         run: |
           source("R/wildfires.R")
-          source("R/polling.R")
         shell: Rscript {0} 
         
       - name: Commit files
