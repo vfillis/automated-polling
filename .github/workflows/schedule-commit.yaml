@@ -101,6 +101,7 @@ jobs:
         run: |
           source("R/wildfires.R")
           source("R/polling.R")
+          source("R/approval-rating-UK.R")
         shell: Rscript {0} 
         
       - name: Commit files
