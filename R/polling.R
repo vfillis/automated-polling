@@ -38,6 +38,13 @@ working_polls = working_polls[, col_order]
 
 all = rbind(working_trends, working_polls)
 
+all$parties = gsub("BP", "Reform", all$parties)
+all$parties = gsub("Green", "Greens", all$parties)
+all$parties = gsub("LibDem", "Lib Dems", all$parties)
+all$parties = gsub("PLPW", "Plaid", all$parties)
+
+all = all[-grep('ChUK', all$parties), ]
+
 all_last3years = subset(all, all$date < Sys.Date() & all$date > (Sys.Date() - (3*365)))
 
 write.csv(all_last3years, file = "data/last3Y_polling.csv")
