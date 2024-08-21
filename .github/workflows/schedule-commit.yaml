@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: "0 9 * * *" 
+    - cron: "0 * * * *" 
 
 jobs:
   generate-data:
@@ -99,6 +99,7 @@ jobs:
           
       - name: Generate data
         run: |
+          source("R/US-polling.R")
           source("R/wildfires.R")
           source("R/polling.R")
           source("R/approval-rating-UK.R")
