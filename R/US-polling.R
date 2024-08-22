@@ -26,7 +26,7 @@ data_biden <- data_biden %>%
 data_all = rbind(data_biden, data)
   
 # write to csv
-write.csv(data_all, "538-president-polling.csv")
+write.csv(data_all, file = "data/538-president-polling.csv")
 
 # US generic ballot (for scatter)
 
@@ -66,4 +66,4 @@ average <- average %>%
 polls_average <- rbind(average, polls)
 
 # write to csv
-write.csv(polls_average, "538-generic-ballot-scatter.csv")
+write.csv(polls_average, file = "data/538-generic-ballot-scatter.csv")
