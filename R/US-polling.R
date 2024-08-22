@@ -1,9 +1,6 @@
 library(jsonlite)
 library("dplyr")
 library("tidyr")
-library(googlesheets4)
-
-gs4_auth(email = "vfillis@canva.com")
 
 data <- jsonlite::fromJSON("https://projects.fivethirtyeight.com/polls/president-general/2024/national/polling-average.json")
 
@@ -28,8 +25,8 @@ data_biden <- data_biden %>%
 # merge files
 data_all = rbind(data_biden, data)
   
-# write to google sheets
-sheet_write(data_all, ss = "1I9fn2vA_rpux-4xjB-HPzXh44wcdV1u1wwmkbbbfSeo", sheet = "538-presidents")
+# write to csv
+write.csv(data_all, "538-president-polling.csv")
 
 # US generic ballot (for scatter)
 
@@ -68,5 +65,5 @@ average <- average %>%
 
 polls_average <- rbind(average, polls)
 
-# write to google sheets
-sheet_write(polls_average, ss = "1I9fn2vA_rpux-4xjB-HPzXh44wcdV1u1wwmkbbbfSeo", sheet = "538-generic-ballot-scatter")
+# write to csv
+write.csv(polls_average, "538-generic-ballot-scatter.csv")
