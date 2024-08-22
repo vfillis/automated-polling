@@ -65,5 +65,13 @@ average <- average %>%
 
 polls_average <- rbind(average, polls)
 
+polls_average <- polls_average %>%
+  rename(
+    Kennedy = pct_estimate_Kennedy,
+    Trump = pct_estimate_Trump,
+    Biden = pct_estimate_Biden,
+    Harris = pct_estimate_Harris
+  )
+
 # write to csv
 write.csv(polls_average, file = "data/538-generic-ballot-scatter.csv")
