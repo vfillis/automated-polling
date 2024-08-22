@@ -24,6 +24,16 @@ data_biden <- data_biden %>%
 
 # merge files
 data_all = rbind(data_biden, data)
+
+data_all <- data_all %>%
+  rename(
+    Kennedy = pct_estimate_Kennedy,
+    Trump = pct_estimate_Trump,
+    Biden = pct_estimate_Biden,
+    Harris = pct_estimate_Harris
+  )
+
+data_all[data_all == 0] <- NA
   
 # write to csv
 write.csv(data_all, file = "data/538-president-polling.csv")
@@ -64,16 +74,6 @@ average <- average %>%
   mutate(startDate = "") 
 
 polls_average <- rbind(average, polls)
-
-polls_average <- polls_average %>%
-  rename(
-    Kennedy = pct_estimate_Kennedy,
-    Trump = pct_estimate_Trump,
-    Biden = pct_estimate_Biden,
-    Harris = pct_estimate_Harris
-  )
-
-polls_average[polls_average == 0] <- NA
 
 # write to csv
 write.csv(polls_average, file = "data/538-generic-ballot-scatter.csv")
