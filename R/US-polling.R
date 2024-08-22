@@ -3,6 +3,8 @@ library("dplyr")
 library("tidyr")
 library(googlesheets4)
 
+gs4_auth(email = "vfillis@canva.com")
+
 data <- jsonlite::fromJSON("https://projects.fivethirtyeight.com/polls/president-general/2024/national/polling-average.json")
 
 data_biden <- fromJSON("https://projects.fivethirtyeight.com/polls/president-general/2024/national/biden-trump/polling-average.json")
