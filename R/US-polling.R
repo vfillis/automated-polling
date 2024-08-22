@@ -73,5 +73,7 @@ polls_average <- polls_average %>%
     Harris = pct_estimate_Harris
   )
 
+polls_average[polls_average == 0] <- NA
+
 # write to csv
 write.csv(polls_average, file = "data/538-generic-ballot-scatter.csv")
